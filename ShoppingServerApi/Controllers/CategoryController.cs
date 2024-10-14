@@ -7,5 +7,7 @@ namespace ShoppingServerApi.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
+
+
     }
 }

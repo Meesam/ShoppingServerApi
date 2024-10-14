@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ShoppingServerApi.Data;
+using ShoppingServerApi.Services;
+using ShoppingServerApi.Services.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ShoppingCartDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
 

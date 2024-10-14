@@ -1,9 +1,10 @@
 ﻿using ShoppingServerApi.Data;
 using ShoppingServerApi.Model;
+using ShoppingServerApi.Services.Interface;
 
 namespace ShoppingServerApi.Services
 {
-    public class CategoryService
+    public class CategoryService : ICategoryService
     {
         private readonly ShoppingCartDbContext _context;
 

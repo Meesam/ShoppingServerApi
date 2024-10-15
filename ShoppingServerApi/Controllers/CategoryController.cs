@@ -33,8 +33,31 @@ namespace ShoppingServerApi.Controllers
             return Ok();
         }
 
+        [HttpPost]
+        [Route("/updateCategory")]
+        public IActionResult UpdateCategory(Category category)
+        {
+            if (category == null) return BadRequest();
+            _categoryService.UpdateCategory(category);
+            return Ok();
+        }
 
+        [HttpGet]
+        [Route("/getCategory/{id}")]
+        public IActionResult GetCategoryById(int id)
+        {
+            if (id <= 0) return BadRequest();
+            var category = _categoryService.GetCategorybyId(id);
+            return Ok(category);
+        }
 
-
+        [HttpDelete]
+        [Route("/deleteCategory/{id}")]
+        public IActionResult DeleteCategory(int id)
+        {
+            if (id <= 0) return BadRequest();
+            _categoryService.DeleteCategory(id);
+            return Ok();
+        }
     }
 }
